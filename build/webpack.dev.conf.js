@@ -12,6 +12,7 @@ const portfinder = require('portfinder')
 const conf = require('../config');
 const baseWebpackConfig = require('./webpack.base.conf');
 const packageConfig = require('../package');
+
 const devWebpackConfig = webpackMerge(baseWebpackConfig, {
   mode: "development",  
   // these devServer options should be customized in /config/index.js
@@ -44,12 +45,7 @@ const devWebpackConfig = webpackMerge(baseWebpackConfig, {
   devtool: conf.dev.devtool,
   module: {
     rules: [
-      // 加载scss
-      {
-        test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-        exclude: [path.resolve(__dirname, './examples')]
-      }
+      
     ]
   },
   plugins: [
